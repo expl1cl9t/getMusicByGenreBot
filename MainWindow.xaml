@@ -1,0 +1,41 @@
+﻿<Window x:Class="ConfiguratorToParser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConfiguratorToParser"
+        mc:Ignorable="d"
+        Title="configurator" Height="300" Width="1086"
+        ResizeMode="NoResize">
+
+    <DockPanel Margin="0,0,0,-48">
+        <Label DockPanel.Dock="Top" FontSize="20">Жанры для просмотра</Label>
+        <Border BorderBrush="Azure" BorderThickness="3" DockPanel.Dock="Top">
+            <WrapPanel Height="auto" x:Name="genres" DockPanel.Dock="Top">
+                <ComboBox FontSize="20" Name="genre_selector">
+                    <ComboBoxItem>Metal</ComboBoxItem>
+                    <ComboBoxItem>Hip-Hop</ComboBoxItem>
+                    <ComboBoxItem>Electro</ComboBoxItem>
+                    <ComboBoxItem>Pop</ComboBoxItem>
+                    <ComboBoxItem>Punk</ComboBoxItem>
+                </ComboBox>
+            </WrapPanel>
+        </Border>
+        <Label DockPanel.Dock="Top" FontSize="20">Бот для рассылки</Label>
+        <CheckBox FontSize="15" x:Name="addAccountsOrNot" DockPanel.Dock="Top" Content="Добавлять бота?" Checked="IsNeedToAddAccounts" ></CheckBox>
+        <Border DockPanel.Dock="Top" Margin="0,0,0,10">
+            <WrapPanel Name="accounts" IsEnabled="False">
+                <Label FontSize="15">Тип аккаунта: </Label>
+                <ComboBox x:Name="TypeOfAccount">
+                    <ComboBoxItem VerticalContentAlignment="Bottom" Background="CadetBlue" IsEnabled="False">Telegram</ComboBoxItem>
+                    <ComboBoxItem VerticalContentAlignment="Bottom" Background="AliceBlue">VK</ComboBoxItem>
+                </ComboBox>
+                <Label FontSize="15"> Токен бота: </Label>
+                <TextBox x:Name="NameOfAccount" FontStyle="Italic" Text="Имя"></TextBox>
+            </WrapPanel>
+        </Border>
+        <Label DockPanel.Dock="Top" Margin="0,0,0,10">Ниже вы сможете нажать на пункт "Создать задачу в планировщике задач". Это значит, что скрипт парсера будет запускаться каждый день в 20:00, но для этого ваш ПК должен быть включен</Label>
+        <CheckBox Name="Schedudler" FontSize="15" DockPanel.Dock="Top" Content="Создать задачу в планировщике задач?"></CheckBox>
+        <Button DockPanel.Dock="Top" Margin="0,0,0,40" Content="Применить настройки" Height="26" Click="SaveConfigurationButton" Width="150"></Button>
+    </DockPanel>
+</Window>
