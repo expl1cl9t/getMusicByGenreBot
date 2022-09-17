@@ -54,6 +54,10 @@ namespace ConfiguratorToParser
             bool? isEnableAccs = addAccountsOrNot.IsChecked;
             bool? schedudled = Schedudler.IsChecked;
             Account acc;
+            if(schedudled == true)
+            {
+                System.Diagnostics.Process.Start(@"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe", " -executionpolicy Unrestricted -File " + "./run_script.ps1");
+            }
             if(isEnableAccs == true)
             {
                 acc = new Account();
